@@ -59,13 +59,13 @@ public final class SignGUI {
         sendPacket(packet);
 
         IChatBaseComponent[] components = CraftSign.sanitizeLines(lines);
-        var sign = new TileEntitySign(blockPosition, Blocks.cg.getBlockData());
-        sign.setColor(EnumColor.p);
+        var sign = new TileEntitySign(blockPosition, Blocks.cg.n());
+        sign.a(EnumColor.p);
 
         for (var i = 0; i < components.length; i++)
             sign.a(i, components[i]);
 
-        sendPacket(sign.getUpdatePacket());
+        sendPacket(sign.c());
 
         var outOpenSignEditor = new PacketPlayOutOpenSignEditor(blockPosition);
         sendPacket(outOpenSignEditor);
@@ -74,7 +74,7 @@ public final class SignGUI {
 
     private void sendPacket(Packet<?> packet) {
         Preconditions.checkNotNull(this.player);
-        ((CraftPlayer) this.player).getHandle().b.sendPacket(packet);
+        ((CraftPlayer) this.player).getHandle().b.a(packet);
     }
 
     SignClickCompleteHandler getCompleteHandler() {

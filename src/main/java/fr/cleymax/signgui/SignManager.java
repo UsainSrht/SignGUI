@@ -69,6 +69,7 @@ public final class SignManager {
 
 							signGUI.getCompleteHandler().onAnvilClick(new SignCompleteEvent(player, blockPosition, lines));
 							guiMap.remove(player.getUniqueId());
+							player.sendMessage("sign complete");
 						}
 					}
 					super.channelRead(ctx, packet);
